@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Accordion from "./components/Accordion/Accordion";
 import {Rating} from "./components/Rating/Rating";
+import {OnOff} from "./components/OnOff/OnOff";
 
 function App() {
     console.log('App rendering')
@@ -16,6 +17,11 @@ function App() {
 
             Article 2
             <Rating value={4}/>
+
+            <OnOff isOn = {true}/>
+            <OnOff isOn = {false}/>
+
+
         </div>
     );
 }
@@ -27,9 +33,5 @@ function PageTitle(props:PageTitlePropsType) {
     console.log('AppTitle rendering')
     return <h1>{props.title}</h1>
 }
-
-
-
-
 
 export default App;
