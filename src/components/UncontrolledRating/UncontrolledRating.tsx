@@ -1,28 +1,46 @@
 import React, {useState} from "react";
+import s from './UncontrolledRating.module.css'
 
 
 export function UncontrolledRating() {
-    const [value,setValue] = useState(0)
+    const [value, setValue] = useState(0)
 
     return (
-        <div>
-            <Star selected = {value>0}/> <button onClick={()=>{setValue(1)}}>1</button>
-            <Star selected = {value>1}/> <button onClick={()=>{setValue(2)}}>2</button>
-            <Star selected = {value>2}/> <button onClick={()=>{setValue(3)}}>3</button>
-            <Star selected = {value>3}/> <button onClick={()=>{setValue(4)}}>4</button>
-            <Star selected = {value>3}/> <button onClick={()=>{setValue(5)}}>5</button>
+        <div className={s.rating}>
+            <Star selected={value > 0} onClick={setValue} value={1}/>
+            <Star selected={value > 1} onClick={setValue} value={2}/>
+            <Star selected={value > 2} onClick={setValue} value={3}/>
+            <Star selected={value > 3} onClick={setValue} value={4}/>
+            <Star selected={value > 4} onClick={setValue} value={5}/>
         </div>
     );
 }
 
 type StarsPropType = {
-    selected:boolean
+    value: 1 | 2 | 3 | 4 | 5
+    selected: boolean
+    onClick: (value: 1 | 2 | 3 | 4 | 5) => void
 }
 
 function Star(props: StarsPropType) {
-    if (props.selected === true) {
-        return <span><b>Star</b></span>
+
+    if (props.selected) {
+        return (<span>
+                <img
+                    className={s.star} src='https://www.svgrepo.com/show/5127/star.svg' alt='logostar'
+                    onClick={() => {
+                        props.onClick(props.value)
+                    }}
+                />
+            </span>
+        )
     } else {
     }
-    return <span>Star</span>
+    return <span>
+        <img className={s.star} src='https://www.svgrepo.com/show/131116/star.svg' alt='logostar'
+             onClick={() => {
+                 props.onClick(props.value)
+             }}
+        />
+    </span>
 }
