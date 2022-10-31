@@ -1,6 +1,6 @@
 import React, {useRef, useState} from 'react';
 
-export const GetValueOfUncontrolledInput = () => {
+export const GetValueOfUncontrolledInput = React.memo( () => {
     const [value, setValue] = useState('')
     const inputRef = useRef<HTMLInputElement>(null)
     const save = () => {
@@ -14,4 +14,4 @@ export const GetValueOfUncontrolledInput = () => {
 
         </div>
     );
-};
+});

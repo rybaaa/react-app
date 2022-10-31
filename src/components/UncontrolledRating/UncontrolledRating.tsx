@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import s from './UncontrolledRating.module.css'
 
 
-export function UncontrolledRating() {
+export const UncontrolledRating = React.memo( ()=> {
     const [value, setValue] = useState(0)
 
     return (
@@ -14,7 +14,7 @@ export function UncontrolledRating() {
             <Star selected={value > 4} onClick={setValue} value={5}/>
         </div>
     );
-}
+})
 
 type StarsPropType = {
     value: 1 | 2 | 3 | 4 | 5
@@ -22,7 +22,7 @@ type StarsPropType = {
     onClick: (value: 1 | 2 | 3 | 4 | 5) => void
 }
 
-function Star(props: StarsPropType) {
+const Star= React.memo ((props: StarsPropType) => {
 
     if (props.selected) {
         return (<span>
@@ -43,4 +43,4 @@ function Star(props: StarsPropType) {
              }}
         />
     </span>
-}
+})

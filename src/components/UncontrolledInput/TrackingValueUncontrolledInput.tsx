@@ -1,6 +1,6 @@
 import React, {ChangeEvent, useState} from 'react';
 
-export const TrackingValueUncontrolledInput = () => {
+export const TrackingValueUncontrolledInput = React.memo( () => {
     const [value, setValue] = useState('')
     const onChange = (e:ChangeEvent<HTMLInputElement>) => {
         const actualValue = e.currentTarget.value
@@ -13,5 +13,5 @@ export const TrackingValueUncontrolledInput = () => {
 
         </div>
     );
-};
+});
 

@@ -1,0 +1,19 @@
+.select {
+    border: 1px solid black;
+    width: 100px;
+    min-height: 20px;
+    cursor: pointer;
+    margin-bottom: 1px;
+}
+.items {
+    border: 1px solid black;
+    width: 100px;
+    cursor: pointer;
+}
+.selected {
+    background-color: #1ea7fd;
+}
+
+.item {
+    min-height: 1em;
+}

@@ -6,7 +6,7 @@ type switcherType = {
     onClick: (switcher:boolean) => void
 }
 
-export const OnOff = (props:switcherType) => {
+export const OnOff = React.memo((props:switcherType) => {
 
     const onClickHandler = () => {props.onClick(!props.value)}
 
@@ -20,5 +20,5 @@ export const OnOff = (props:switcherType) => {
             <div className={circle}></div>
         </div>
     );
-};
+});
 

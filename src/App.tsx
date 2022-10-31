@@ -12,13 +12,15 @@ import {ControlledInput} from "./components/ControlledInput/ControlledInput";
 import {ControlledCheckbox} from "./components/ControlledInput/ControlledCheckbox";
 import {ControlledSelect} from "./components/ControlledInput/ControlledSelect";
 import Select from "./components/Select/Select";
+import {ReactMemo} from "./components/ReactMemo/ReactMemo";
 
 function App() {
     const [rating, setRating] = useState<0 | 1 | 2 | 3 | 4 | 5>(0)
     const [collapsed, setCollapsed] = useState(false)
     const [switcher, setSwitcher] = useState(false)
-    const [tech, setTech] = useState<string>("Student")
+    const [value, setValue] = useState<string>(' ')
     const [select, setSelect] = useState(false)
+
     return (
         <div className={s.app}>
             <PageTitle title={'This is APP component'}/>
@@ -45,16 +47,19 @@ function App() {
             <ControlledInput/>
             <ControlledCheckbox/>
             <ControlledSelect/>
-            <Select value={tech}
-                    items={[{title: 'Student', id: 1},
-                        {title: 'Front', id: 2},
-                        {title: 'Back', id: 3},
-                        {title: 'Full', id: 4},
-                        {title: 'PM', id: 5}]}
+            <Select value={value}
+                    items={[
+                        {value:'1', title: 'Student'},
+                        {value:'2', title: 'Front'},
+                        {value:'3', title: 'Back'},
+                        {value:'4', title: 'Full'},
+                        {value:'5', title: 'PM'}]}
                     select = {select}
                     onClick={setSelect}
-                    onClickChangeValue={setTech}
+                    onClickChangeValue={setValue}
             />
+            <UncontrolledAccordion title={'Menu'}/>
+            <ReactMemo/>
         </div>
     );
 }
@@ -63,9 +68,9 @@ type PageTitlePropsType = {
     title: string
 }
 
-function PageTitle(props: PageTitlePropsType) {
+const PageTitle = React.memo((props: PageTitlePropsType) => {
     console.log('AppTitle rendering')
     return <h1>{props.title}</h1>
-}
+})
 
 export default App;

@@ -13,16 +13,14 @@ type AccordionPropsType = {
 }
 
 
-function Accordion(props: AccordionPropsType) {
+const Accordion = React.memo((props: AccordionPropsType) => {
     console.log('Accordion rendering')
-
-
     return (<div>
             <AccordionTitle title={props.title} collapsed={props.collapsed} onClick={props.onClick}/>
             {!props.collapsed && <AccordionBody items={props.items}/>}
         </div>
     )
-}
+})
 
 type AccrodionTitlePropsType = {
     collapsed: boolean
@@ -42,12 +40,12 @@ type AccrodionBodyPropsType = {
     items: ItemsType[]
 }
 
-function AccordionBody(props: AccrodionBodyPropsType) {
+const AccordionBody = React.memo((props: AccrodionBodyPropsType) => {
     return (
         <ul>
             {props.items.map(el => <li key={el.id} onClick={()=>{alert(el.title)}}>{el.title}</li>)}
         </ul>
     )
-}
+})
 
-export default Accordion;
+export default React.memo(Accordion);
