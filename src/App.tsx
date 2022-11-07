@@ -13,6 +13,8 @@ import {ControlledCheckbox} from "./components/ControlledInput/ControlledCheckbo
 import {ControlledSelect} from "./components/ControlledInput/ControlledSelect";
 import Select from "./components/Select/Select";
 import {ReactMemo} from "./components/ReactMemo/ReactMemo";
+import {UseMemo} from "./components/UseMemo/UseMemo";
+import {UseMemoHelpsReactMemo} from "./components/UseMemo/UseMemoHelpsReactMemo";
 
 function App() {
     const [rating, setRating] = useState<0 | 1 | 2 | 3 | 4 | 5>(0)
@@ -60,6 +62,10 @@ function App() {
             />
             <UncontrolledAccordion title={'Menu'}/>
             <ReactMemo/>
+            <hr/>
+            <UseMemo/>
+            <UseMemoHelpsReactMemo/>
+
         </div>
     );
 }

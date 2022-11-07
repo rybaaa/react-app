@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Counter} from "./Counter";
-import {Users} from "./Users";
+import {Users} from "../UseMemo/Users";
 
 export const ReactMemo = () => {
     const [counter, setCounter] = useState(0)
