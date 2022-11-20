@@ -17,6 +17,7 @@ import {UseMemo} from "./components/UseMemo/UseMemo";
 import {UseMemoHelpsReactMemo} from "./components/UseMemo/UseMemoHelpsReactMemo";
 import {UseStateAdvanced} from "./components/UseStateAdvanced/UseStateAdvanced";
 import {UseEffect} from "./components/UseEffect/UseEffect";
+import {UseEffectWithTimeout} from "./components/UseEffect/UseEffectWithTimeout";
 
 function App() {
     const [rating, setRating] = useState<0 | 1 | 2 | 3 | 4 | 5>(0)
@@ -69,6 +70,7 @@ function App() {
             <UseMemoHelpsReactMemo/>
             <UseStateAdvanced/>
             <UseEffect/>
+            <UseEffectWithTimeout/>
         </div>
     );
 }
