@@ -15,6 +15,7 @@ import Select from "./components/Select/Select";
 import {ReactMemo} from "./components/ReactMemo/ReactMemo";
 import {UseMemo} from "./components/UseMemo/UseMemo";
 import {UseMemoHelpsReactMemo} from "./components/UseMemo/UseMemoHelpsReactMemo";
+import {UseStateAdvanced} from "./components/UseStateAdvanced/UseStateAdvanced";
 
 function App() {
     const [rating, setRating] = useState<0 | 1 | 2 | 3 | 4 | 5>(0)
@@ -65,7 +66,7 @@ function App() {
             <hr/>
             <UseMemo/>
             <UseMemoHelpsReactMemo/>
-
+            <UseStateAdvanced/>
         </div>
     );
 }
