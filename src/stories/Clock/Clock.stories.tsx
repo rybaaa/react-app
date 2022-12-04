@@ -7,7 +7,7 @@ export default {
   component: Clock,
 } as ComponentMeta<typeof Clock>;
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
+
 const Template: ComponentStory<typeof Clock> = (args) => <Clock {...args} />;
 
 export const DigitClockStory = Template.bind({});

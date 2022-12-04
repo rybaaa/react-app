@@ -4,17 +4,26 @@ export const UseEffectWithTimeout = () => {
     const [fake, setFake] = useState(1)
     const [counter, setCounter] = useState(1)
     useEffect(() => {
-        setTimeout(()=> {
+        let timeout = setTimeout(() => {
             console.log('setTimeout')
             document.title = counter.toString()
         }, 1000)
+        return (() => {
+            clearTimeout(timeout)
+        })
     }, [counter])
     return (
         <div>
             <div>{counter}</div>
-            <button onClick={()=>{setCounter(counter+1)}}>counter+</button>
+            <button onClick={() => {
+                setCounter(counter + 1)
+            }}>counter+
+            </button>
             <div>{fake}</div>
-            <button onClick={()=>{setFake(fake+1)}}>fake+</button>
+            <button onClick={() => {
+                setFake(fake + 1)
+            }}>fake+
+            </button>
         </div>
     );
 };
