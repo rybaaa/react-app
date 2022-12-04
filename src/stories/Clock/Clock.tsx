@@ -9,10 +9,11 @@ type PropsType = {
 export const Clock = (props: PropsType) => {
     const [date, setDate] = useState(new Date())
     useEffect(() => {
-        console.log('clock')
-        setInterval(() => {
+        const interval = setInterval(() => {
+            console.log('tick')
             setDate(new Date(Date.now()))
         }, 1000)
+        return (() => clearInterval(interval))
     }, [])
 
     let view
@@ -22,7 +23,7 @@ export const Clock = (props: PropsType) => {
             break
         case 'analog':
         default:
-            view = <AnalogClockView date = {date}/>
+            view = <AnalogClockView date={date}/>
     }
     return (
         <div>
